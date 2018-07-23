@@ -58,15 +58,18 @@
           const wr3 = (5.80 + 5.95 + 6.31) / 3;
           const wr4 = (21.13 + 22.27 + 23.28) / 3;
           const wr5 = (42.56 + 43.21 + 46.84) / 3;
-          const wr6 = (3) / 3;
-          const wr7 = (3) / 3;
-          const wrOH = (3) / 3;
+          const wr6 = (77.37 + 87.73 + 87.79) / 3;
+          const wr7 = (117.10 + 125.7 + 126.76) / 3;
+          const wrOH = (9.47 + 9.54 + 10.06) / 3;
 
           if (events == 333) {
             document.getElementById("results").innerHTML = ysi + Number(100 * ((wr3) / time)).toFixed(2) + "</p><hr>" +
             "What you should average in other events:<br><br>" +
             "4x4: " + Number(wr4 / (wr3 / time)).toFixed(2) + "<br>" +
-            "5x5: " + Number(wr5 / (wr3 / time)).toFixed(2) + "<br>";
+            "5x5: " + Number(wr5 / (wr3 / time)).toFixed(2) + "<br>" +
+            "6x6: " + Number(wr6 / (wr3 / time)).toFixed(2) + "<br>" +
+            "7x7: " + Number(wr7 / (wr3 / time)).toFixed(2) + "<br>" +
+            "OH: " + Number(wrOH / (wr3 / time)).toFixed(2) + "<br>";
           } else if (events == 444) {
             document.getElementById("results").innerHTML = ysi;
           } else if (events == 555) {
