@@ -73,75 +73,80 @@
           const wrOH = (9.47 + 9.54 + 10.06) / 3;
           const wrMega = (32.03 + 34.65 + 35.02) / 3;
 
-          if (events == 333) {
-            document.getElementById("results").innerHTML = ysi + Number(100 * ((wr3) / time)).toFixed(2) + "</p><br>" +
-            "<b>2x2:</b> " + convertTime((wr2 / (wr3 / time))) + "<br>" +
-            "<b>4x4:</b> " + convertTime((wr4 / (wr3 / time))) + "<br>" +
-            "<b>5x5:</b> " + convertTime((wr5 / (wr3 / time))) + "<br>" +
-            "<b>6x6:</b> " + convertTime((wr6 / (wr3 / time))) + "<br>" +
-            "<b>7x7:</b> " + convertTime((wr7 / (wr3 / time))) + "<br>" +
-            "<b>OH:</b> " + convertTime((wrOH / (wr3 / time))) + "<br>" +
-            "<b>Megaminx:</b> " + convertTime((wrMega / (wr3 / time))) + "<br>";
-          } else if (events == 444) {
-            document.getElementById("results").innerHTML = ysi + Number(100 * ((wr4) / time)).toFixed(2) + "</p><hr>" +
-            "This score on other events:<br><br>" +
-            "<b>2x2:</b> " + convertTime((wr2 / (wr4 / time))) + "<br>" +
-            "<b>3x3:</b> " + convertTime((wr3 / (wr4 / time))) + "<br>" +
-            "<b>5x5:</b> " + convertTime((wr5 / (wr4 / time))) + "<br>" +
-            "<b>6x6:</b> " + convertTime((wr6 / (wr4 / time))) + "<br>" +
-            "<b>7x7:</b> " + convertTime((wr7 / (wr4 / time))) + "<br>" +
-            "<b>OH:</b> " + convertTime((wrOH / (wr4 / time))) + "<br>" +
-            "<b>Megaminx:</b> " + convertTime((wrMega / (wr4 / time))) + "<br>";
-          } else if (events == 555) {
-            document.getElementById("results").innerHTML = ysi + Number(100 * ((wr5) / time)).toFixed(2) + "</p><hr>" +
-            "This score on other events:<br><br>" +
-            "<b>2x2:</b> " + convertTime((wr2 / (wr5 / time))) + "<br>" +
-            "<b>3x3:</b> " + convertTime((wr3 / (wr5 / time))) + "<br>" +
-            "<b>4x4:</b> " + convertTime((wr4 / (wr5 / time))) + "<br>" +
-            "<b>6x6:</b> " + convertTime((wr6 / (wr5 / time))) + "<br>" +
-            "<b>7x7:</b> " + convertTime((wr7 / (wr5 / time))) + "<br>" +
-            "<b>OH:</b> " + convertTime((wrOH / (wr5 / time))) + "<br>" +
-            "<b>Megaminx:</b> " + convertTime((wrMega / (wr5 / time))) + "<br>";
-          } else if (events == 666) {
-            document.getElementById("results").innerHTML = ysi + Number(100 * ((wr6) / time)).toFixed(2) + "</p><hr>" +
-            "This score on other events:<br><br>" +
-            "<b>2x2:</b> " + convertTime((wr2 / (wr6 / time))) + "<br>" +
-            "<b>3x3:</b> " + convertTime((wr3 / (wr6 / time))) + "<br>" +
-            "<b>4x4:</b> " + convertTime((wr4 / (wr6 / time))) + "<br>" +
-            "<b>5x5:</b> " + convertTime((wr5 / (wr6 / time))) + "<br>" +
-            "<b>7x7:</b> " + convertTime((wr7 / (wr6 / time))) + "<br>" +
-            "<b>OH:</b> " + convertTime((wrOH / (wr6 / time))) + "<br>" +
-            "<b>Megaminx:</b> " + convertTime((wrMega / (wr6 / time))) + "<br>";
-          } else if (events == 777) {
-            document.getElementById("results").innerHTML = ysi + Number(100 * ((wr7) / time)).toFixed(2) + "</p><hr>" +
-            "This score on other events:<br><br>" +
-            "<b>2x2:</b> " + convertTime((wr2 / (wr7 / time))) + "<br>" +
-            "<b>3x3:</b> " + convertTime((wr3 / (wr7 / time))) + "<br>" +
-            "<b>4x4:</b> " + convertTime((wr4 / (wr7 / time))) + "<br>" +
-            "<b>5x5:</b> " + convertTime((wr5 / (wr7 / time))) + "<br>" +
-            "<b>6x6:</b> " + convertTime((wr6 / (wr7 / time))) + "<br>" +
-            "<b>OH:</b> " + convertTime((wrOH / (wr7 / time))) + "<br>" +
-            "<b>Megaminx:</b> " + convertTime((wrMega / (wr7 / time))) + "<br>";
-          } else if (events == "333oh") {
-            document.getElementById("results").innerHTML = ysi + Number(100 * ((wrOH) / time)).toFixed(2) + "</p><hr>" +
-            "This score on other events:<br><br>" +
-            "<b>2x2:</b> " + convertTime((wr2 / (wrOH / time))) + "<br>" +
-            "<b>3x3:</b> " + convertTime((wr3 / (wrOH / time))) + "<br>" +
-            "<b>4x4:</b> " + convertTime((wr4 / (wrOH / time))) + "<br>" +
-            "<b>5x5:</b> " + convertTime((wr5 / (wrOH / time))) + "<br>" +
-            "<b>6x6:</b> " + convertTime((wr6 / (wrOH / time))) + "<br>" +
-            "<b>7x7:</b> " + convertTime((wr7 / (wrOH / time))) + "<br>" +
-            "<b>Megaminx:</b> " + convertTime((wrMega / (wrOH / time))) + "<br>";
-          } else if (events == "mega") {
-            document.getElementById("results").innerHTML = ysi + Number(100 * ((wrMega) / time)).toFixed(2) + "</p><hr>" +
-            "This score on other events:<br><br>" +
-            "<b>2x2:</b> " + convertTime((wr2 / (wrMega / time))) + "<br>" +
-            "<b>3x3:</b> " + convertTime((wr3 / (wrMega / time))) + "<br>" +
-            "<b>4x4:</b> " + convertTime((wr4 / (wrMega / time))) + "<br>" +
-            "<b>5x5:</b> " + convertTime((wr5 / (wrMega / time))) + "<br>" +
-            "<b>6x6:</b> " + convertTime((wr6 / (wrMega / time))) + "<br>" +
-            "<b>7x7:</b> " + convertTime((wr7 / (wrMega / time))) + "<br>" +
-            "<b>OH:</b> " + convertTime((wrOH / (wrMega / time))) + "<br>";
+          if (time == "" || time <= 0) {
+            document.getElementById("results").innerHTML = "You're silly, empty or negative inputs are not valid.";
+          } else {
+            if (events == 333) {
+              document.getElementById("results").innerHTML = ysi + Number(100 * ((wr3) / time)).toFixed(2) + "</p>" +
+              "This score on other events:<br><br>" +
+              "<b>2x2:</b> " + convertTime((wr2 / (wr3 / time))) + "<br>" +
+              "<b>4x4:</b> " + convertTime((wr4 / (wr3 / time))) + "<br>" +
+              "<b>5x5:</b> " + convertTime((wr5 / (wr3 / time))) + "<br>" +
+              "<b>6x6:</b> " + convertTime((wr6 / (wr3 / time))) + "<br>" +
+              "<b>7x7:</b> " + convertTime((wr7 / (wr3 / time))) + "<br>" +
+              "<b>OH:</b> " + convertTime((wrOH / (wr3 / time))) + "<br>" +
+              "<b>Megaminx:</b> " + convertTime((wrMega / (wr3 / time))) + "<br>";
+            } else if (events == 444) {
+              document.getElementById("results").innerHTML = ysi + Number(100 * ((wr4) / time)).toFixed(2) + "</p>" +
+              "This score on other events:<br><br>" +
+              "<b>2x2:</b> " + convertTime((wr2 / (wr4 / time))) + "<br>" +
+              "<b>3x3:</b> " + convertTime((wr3 / (wr4 / time))) + "<br>" +
+              "<b>5x5:</b> " + convertTime((wr5 / (wr4 / time))) + "<br>" +
+              "<b>6x6:</b> " + convertTime((wr6 / (wr4 / time))) + "<br>" +
+              "<b>7x7:</b> " + convertTime((wr7 / (wr4 / time))) + "<br>" +
+              "<b>OH:</b> " + convertTime((wrOH / (wr4 / time))) + "<br>" +
+              "<b>Megaminx:</b> " + convertTime((wrMega / (wr4 / time))) + "<br>";
+            } else if (events == 555) {
+              document.getElementById("results").innerHTML = ysi + Number(100 * ((wr5) / time)).toFixed(2) + "</p>" +
+              "This score on other events:<br><br>" +
+              "<b>2x2:</b> " + convertTime((wr2 / (wr5 / time))) + "<br>" +
+              "<b>3x3:</b> " + convertTime((wr3 / (wr5 / time))) + "<br>" +
+              "<b>4x4:</b> " + convertTime((wr4 / (wr5 / time))) + "<br>" +
+              "<b>6x6:</b> " + convertTime((wr6 / (wr5 / time))) + "<br>" +
+              "<b>7x7:</b> " + convertTime((wr7 / (wr5 / time))) + "<br>" +
+              "<b>OH:</b> " + convertTime((wrOH / (wr5 / time))) + "<br>" +
+              "<b>Megaminx:</b> " + convertTime((wrMega / (wr5 / time))) + "<br>";
+            } else if (events == 666) {
+              document.getElementById("results").innerHTML = ysi + Number(100 * ((wr6) / time)).toFixed(2) + "</p>" +
+              "This score on other events:<br><br>" +
+              "<b>2x2:</b> " + convertTime((wr2 / (wr6 / time))) + "<br>" +
+              "<b>3x3:</b> " + convertTime((wr3 / (wr6 / time))) + "<br>" +
+              "<b>4x4:</b> " + convertTime((wr4 / (wr6 / time))) + "<br>" +
+              "<b>5x5:</b> " + convertTime((wr5 / (wr6 / time))) + "<br>" +
+              "<b>7x7:</b> " + convertTime((wr7 / (wr6 / time))) + "<br>" +
+              "<b>OH:</b> " + convertTime((wrOH / (wr6 / time))) + "<br>" +
+              "<b>Megaminx:</b> " + convertTime((wrMega / (wr6 / time))) + "<br>";
+            } else if (events == 777) {
+              document.getElementById("results").innerHTML = ysi + Number(100 * ((wr7) / time)).toFixed(2) + "</p>" +
+              "This score on other events:<br><br>" +
+              "<b>2x2:</b> " + convertTime((wr2 / (wr7 / time))) + "<br>" +
+              "<b>3x3:</b> " + convertTime((wr3 / (wr7 / time))) + "<br>" +
+              "<b>4x4:</b> " + convertTime((wr4 / (wr7 / time))) + "<br>" +
+              "<b>5x5:</b> " + convertTime((wr5 / (wr7 / time))) + "<br>" +
+              "<b>6x6:</b> " + convertTime((wr6 / (wr7 / time))) + "<br>" +
+              "<b>OH:</b> " + convertTime((wrOH / (wr7 / time))) + "<br>" +
+              "<b>Megaminx:</b> " + convertTime((wrMega / (wr7 / time))) + "<br>";
+            } else if (events == "333oh") {
+              document.getElementById("results").innerHTML = ysi + Number(100 * ((wrOH) / time)).toFixed(2) + "</p>" +
+              "This score on other events:<br><br>" +
+              "<b>2x2:</b> " + convertTime((wr2 / (wrOH / time))) + "<br>" +
+              "<b>3x3:</b> " + convertTime((wr3 / (wrOH / time))) + "<br>" +
+              "<b>4x4:</b> " + convertTime((wr4 / (wrOH / time))) + "<br>" +
+              "<b>5x5:</b> " + convertTime((wr5 / (wrOH / time))) + "<br>" +
+              "<b>6x6:</b> " + convertTime((wr6 / (wrOH / time))) + "<br>" +
+              "<b>7x7:</b> " + convertTime((wr7 / (wrOH / time))) + "<br>" +
+              "<b>Megaminx:</b> " + convertTime((wrMega / (wrOH / time))) + "<br>";
+            } else if (events == "mega") {
+              document.getElementById("results").innerHTML = ysi + Number(100 * ((wrMega) / time)).toFixed(2) + "</p>" +
+              "This score on other events:<br><br>" +
+              "<b>2x2:</b> " + convertTime((wr2 / (wrMega / time))) + "<br>" +
+              "<b>3x3:</b> " + convertTime((wr3 / (wrMega / time))) + "<br>" +
+              "<b>4x4:</b> " + convertTime((wr4 / (wrMega / time))) + "<br>" +
+              "<b>5x5:</b> " + convertTime((wr5 / (wrMega / time))) + "<br>" +
+              "<b>6x6:</b> " + convertTime((wr6 / (wrMega / time))) + "<br>" +
+              "<b>7x7:</b> " + convertTime((wr7 / (wrMega / time))) + "<br>" +
+              "<b>OH:</b> " + convertTime((wrOH / (wrMega / time))) + "<br>";
+            }
           }
         }
       </script>
@@ -164,7 +169,7 @@
         <option value="333oh">3x3x3 OH</option>
         <option value="mega">Megaminx</option>
       </select>
-      <input type="text" id="time" placeholder="1:36.98"><br>
+      <input type="text" id="time" placeholder="00:00.00"><br>
       <input type="button" onclick="limit()" value="Calculate">
     </div><hr>
 
