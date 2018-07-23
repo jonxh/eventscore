@@ -64,7 +64,7 @@
 
           if (events == 333) {
             document.getElementById("results").innerHTML = ysi + Number(100 * ((mc3 / tps3) / time)).toFixed(2) + "</p><hr>" +
-            "What you should average in other events:<br><br>4x4: " + Number(convertTime(mc4/(tps4*((mc3 / tps3) / time)))).toFixed(2) + "<br>" +
+            "What you should average in other events:<br><br>4x4: " + convertTime(Number(mc4/(tps4*((mc3 / tps3) / time))).toFixed(2)) + "<br>" +
             "5x5: " + convertTime(Number(mc5/(tps5*((mc3 / tps3) / time))).toFixed(2)) + "<br>";
         ;
           } else if (events == 444) {
