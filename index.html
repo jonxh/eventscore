@@ -24,13 +24,19 @@
           text-align: center;
         }
             #form select {
+              font-family: 'Open sans', sans-seriv;
               margin: 2px 2px 2px 2px;
             }
 
             #form input {
+              font-family: 'Open sans', sans-seriv;
               margin: 2px 2px 2px 2px;
             }
-
+            #form #time {
+              font-family: 'Open sans', sans-seriv;
+              width: 70px;
+              margin: 2px 2px 2px 2px;
+            }
         #results {
           text-align: center;
           font-size: 20;
@@ -144,11 +150,12 @@
   <body>
 
     <div id="header">
-      <h1 style="text-align:center;">Event Score</h1><hr>
+      <h1>Event Score</h1><hr>
     </div>
 
     <div style="text-align:center;" id="form">
       <select id="events">
+        <option style="color:gray;">Pick Event</option>
         <option value="333">3x3x3</option>
         <option value="444">4x4x4</option>
         <option value="555">5x5x5</option>
@@ -157,13 +164,11 @@
         <option value="333oh">3x3x3 OH</option>
         <option value="mega">Megaminx</option>
       </select>
-      <input type="text" id="time">
+      <input type="text" id="time" placeholder="1:36.98"><br>
       <input type="button" onclick="limit()" value="Calculate">
     </div><hr>
 
-    <div id="results">
-      Results will show up here.
-    </div>
+    <div id="results"></div>
 
   </body>
 </html>
