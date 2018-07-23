@@ -16,7 +16,7 @@
 
         #header {
           text-align: center;
-          font
+          margin-top: 5px;
         }
 
         #form   {
@@ -43,6 +43,7 @@
         }
 
             #results p {
+              line-height: 1;
               font-size: 30;
               color: green;
             }
@@ -73,8 +74,7 @@
           const wrMega = (32.03 + 34.65 + 35.02) / 3;
 
           if (events == 333) {
-            document.getElementById("results").innerHTML = ysi + Number(100 * ((wr3) / time)).toFixed(2) + "</p><hr>" +
-            "This score on other events:<br><br>" +
+            document.getElementById("results").innerHTML = ysi + Number(100 * ((wr3) / time)).toFixed(2) + "</p><br>" +
             "<b>2x2:</b> " + convertTime((wr2 / (wr3 / time))) + "<br>" +
             "<b>4x4:</b> " + convertTime((wr4 / (wr3 / time))) + "<br>" +
             "<b>5x5:</b> " + convertTime((wr5 / (wr3 / time))) + "<br>" +
@@ -150,7 +150,7 @@
   <body>
 
     <div id="header">
-      <h1>Event Score</h1><hr>
+      <h1>Event Score</h1>
     </div>
 
     <div style="text-align:center;" id="form">
