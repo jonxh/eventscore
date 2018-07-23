@@ -46,8 +46,8 @@
         function limit() {
 
           function convertTime(num) {
-            m = Math.floor(num/60);
-            s = num%60;
+            var m = Math.floor(num/60);
+            var s = Number(num%60).toFixed(2);
             return(m + ":" + s);
           }
 
@@ -64,12 +64,12 @@
 
           if (events == 333) {
             document.getElementById("results").innerHTML = ysi + Number(100 * ((wr3) / time)).toFixed(2) + "</p><hr>" +
-            "What you should average in other events:<br><br>" +
-            "4x4: " + Number(wr4 / (wr3 / time)).toFixed(2) + "<br>" +
-            "5x5: " + Number(wr5 / (wr3 / time)).toFixed(2) + "<br>" +
-            "6x6: " + Number(wr6 / (wr3 / time)).toFixed(2) + "<br>" +
-            "7x7: " + Number(wr7 / (wr3 / time)).toFixed(2) + "<br>" +
-            "OH: " + Number(wrOH / (wr3 / time)).toFixed(2) + "<br>";
+            "You score on other events:<br><br>" +
+            "4x4: " + convertTime((wr4 / (wr3 / time))) + "<br>" +
+            "5x5: " + convertTime((wr5 / (wr3 / time))) + "<br>" +
+            "6x6: " + convertTime((wr6 / (wr3 / time))) + "<br>" +
+            "7x7: " + convertTime((wr7 / (wr3 / time))) + "<br>" +
+            "OH: " + convertTime((wrOH / (wr3 / time))) + "<br>";
           } else if (events == 444) {
             document.getElementById("results").innerHTML = ysi;
           } else if (events == 555) {
