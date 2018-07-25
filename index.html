@@ -15,7 +15,6 @@
           margin:0;
           line-height: 1.6;
         }
-
         hr
         {
           border: 0;
@@ -28,12 +27,11 @@
           text-align: center;
           margin-top: 5px;
         }
-
-        #header a, a:visited, a:link
-        {
-          text-decoration: none;
-          color: skyblue;
-        }
+            #header a, a:visited, a:link
+            {
+              text-decoration: none;
+              color: black;
+            }
 
         #form
         {
@@ -46,7 +44,6 @@
               font-family: 'Open sans', sans-seriv;
               margin: 2px 2px 2px 2px;
             }
-
             #form input
             {
               font-family: 'Open sans', sans-seriv;
@@ -58,16 +55,43 @@
               width: 70px;
               margin: 2px 2px 2px 2px;
             }
+
         #results
         {
           text-align: center;
           font-size: 20;
         }
-
             #results p {
               line-height: 1;
               font-size: 30;
+              font-weight: bold;
               color: green;
+            }
+            #results table {
+              margin: auto;
+            }
+            #results td {
+              text-align: center;
+              cursor:default;
+              width:100px;
+              border: 1px solid black;
+              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            #results td:hover {
+              box-shadow: 0px 1px 5px rgba(0,0,0,0.5), 0px 0px;
+            }
+            #results .l {
+              border-color:green;
+            }
+            #results .r {
+              border-color:#ffbfbf;
+            }
+            #results .c {
+              border-color:blue;
+            }
+            #results .eventL {
+              text-align: left;
+              width:120px;
             }
       </style>
 
@@ -77,9 +101,9 @@
           function convertTime(n) {
             var m = Math.floor(n/60);
             var s = Number(n%60).toFixed(2);
-            if (m != 0 && s > 10) { return(m + ":" + s); };
+            if (m != 0 && s > 10) { return(m + ":" + s); }
             if (m != 0 && s < 10 ) { return(m + ":0" + s); }
-            if (m == 0 && s != 0) { return(s); };
+            if (m == 0 && s != 0) { return(s); }
           }
 
           var events = document.getElementById("events").value;
@@ -87,37 +111,115 @@
 
           var p = "";
 
-          if (events == 222) { p = 1.37; }
-          if (events == 333) { p = 5.80; }
-          if (events == 444) { p = 21.13; }
-          if (events == 555) { p = 42.56; }
-          if (events == 666) { p = 77.37; }
-          if (events == 777) { p = 117.1; }
-          if (events == "333oh") { p = 9.47; }
-          if (events == "mega") { p = 32.03; }
-
           if (time == "" || time <= 0) {
             document.getElementById("results").innerHTML = "Invalid.";
           } else {
-              document.getElementById("results").innerHTML =
-              "Your score is:<p>" + Number(100 * ((p) / time)).toFixed(2) + "</p>" +
-              "Equivalent score:<br><br>" +
-              "<b>2x2:</b> " + convertTime((1.37 / (p / time))) + " - " +
-              convertTime((3 / (p / time))) +
-              "<br><b>3x3:</b> " + convertTime((5.80 / (p / time))) + " - " +
-              convertTime((8.3 / (p / time))) +
-              "<br><b>4x4:</b> " + convertTime((21.13 / (p / time))) + " - " +
-              convertTime((30 / (p / time))) +
-              "<br><b>5x5:</b> " + convertTime((42.56 / (p / time))) + " - " +
-              convertTime((60 / (p / time))) +
-              "<br><b>6x6:</b> " + convertTime((77.37 / (p / time))) + " - " +
-              convertTime((110 / (p / time))) +
-              "<br><b>7x7:</b> " + convertTime((117.10 / (p / time))) + " - " +
-              convertTime((170 / (p / time))) +
-              "<br><b>OH:</b> " + convertTime((9.47 / (p / time))) + " - " +
-              convertTime((13 / (p / time))) +
-              "<br><b>Megaminx:</b> " + convertTime((32.03 / (p / time))) + " - " +
-              convertTime((50 / (p / time))) + "<br><hr>";
+              if (events == 222) {
+                p = 1.37
+                document.getElementById("results").innerHTML =
+                "Your score is:<p>" + Number(10000 * ((p) / time)).toFixed(0) + "</p>" +
+                "<table class=\"row\">" +
+                "<tr><td class=\"eventL\"><b>2x2:</b></td><td colspan=\"2\" class=\"c\">" + convertTime((1.37 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>3x3:</b></td><td class=\"l\">" + convertTime((5.80 / (p / time))) + "</td><td class=\"r\">" + convertTime((8.3 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>4x4:</b></td><td class=\"l\">" + convertTime((21.13 / (p / time))) + "</td><td class=\"r\">" + convertTime((30 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>5x5:</b></td><td class=\"l\">" + convertTime((42.56 / (p / time))) + "</td><td class=\"r\">" + convertTime((60 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>6x6:</b></td><td class=\"l\">" + convertTime((77.37 / (p / time))) + "</td><td class=\"r\">" + convertTime((110 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>7x7:</b></td><td class=\"l\">" + convertTime((117.10 / (p / time))) + "</td><td class=\"r\">" + convertTime((170 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>OH:</b></td><td class=\"l\">" + convertTime((9.47 / (p / time))) + "</td><td class=\"r\">" + convertTime((13 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>Megaminx:</b></td><td class=\"l\">" + convertTime((32.03 / (p / time))) + "</td><td class=\"r\">" + convertTime((50 / (p / time))) + "</td></tr></table><hr>";
+              } else if (events == 333) {
+                p = 5.80
+                document.getElementById("results").innerHTML =
+                "Your score is:<p>" + Number(10000 * ((p) / time)).toFixed(0) + "</p>" +
+                "<table class=\"row\">" +
+                "<tr><td class=\"eventL\"><b>2x2:</b></td><td class=\"l\">" + convertTime((1.37 / (p / time))) + "</td><td class=\"r\">" + convertTime((3 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>3x3:</b></td><td colspan=\"2\" class=\"c\">" + convertTime((5.80 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>4x4:</b></td><td class=\"l\">" + convertTime((21.13 / (p / time))) + "</td><td class=\"r\">" + convertTime((30 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>5x5:</b></td><td class=\"l\">" + convertTime((42.56 / (p / time))) + "</td><td class=\"r\">" + convertTime((60 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>6x6:</b></td><td class=\"l\">" + convertTime((77.37 / (p / time))) + "</td><td class=\"r\">" + convertTime((110 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>7x7:</b></td><td class=\"l\">" + convertTime((117.10 / (p / time))) + "</td><td class=\"r\">" + convertTime((170 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>OH:</b></td><td class=\"l\">" + convertTime((9.47 / (p / time))) + "</td><td class=\"r\">" + convertTime((13 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>Megaminx:</b></td><td class=\"l\">" + convertTime((32.03 / (p / time))) + "</td><td class=\"r\">" + convertTime((50 / (p / time))) + "</td></tr></table><hr>";
+              } else if (events == 444) {
+                p = 21.13
+                document.getElementById("results").innerHTML =
+                "Your score is:<p>" + Number(10000 * ((p) / time)).toFixed(0) + "</p>" +
+                "<table class=\"row\">" +
+                "<tr><td class=\"eventL\"><b>2x2:</b></td><td class=\"l\">" + convertTime((1.37 / (p / time))) + "</td><td class=\"r\">" + convertTime((3 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>3x3:</b></td><td class=\"l\">" + convertTime((5.80 / (p / time))) + "</td><td class=\"r\">" + convertTime((8.3 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>4x4:</b></td><td colspan=\"2\" class=\"c\">" + convertTime((21.13 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>5x5:</b></td><td class=\"l\">" + convertTime((42.56 / (p / time))) + "</td><td class=\"r\">" + convertTime((60 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>6x6:</b></td><td class=\"l\">" + convertTime((77.37 / (p / time))) + "</td><td class=\"r\">" + convertTime((110 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>7x7:</b></td><td class=\"l\">" + convertTime((117.10 / (p / time))) + "</td><td class=\"r\">" + convertTime((170 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>OH:</b></td><td class=\"l\">" + convertTime((9.47 / (p / time))) + "</td><td class=\"r\">" + convertTime((13 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>Megaminx:</b></td><td class=\"l\">" + convertTime((32.03 / (p / time))) + "</td><td class=\"r\">" + convertTime((50 / (p / time))) + "</td></tr></table><hr>";
+              } else if (events == 555) {
+                p = 42.56
+                document.getElementById("results").innerHTML =
+                "Your score is:<p>" + Number(10000 * ((p) / time)).toFixed(0) + "</p>" +
+                "<table class=\"row\">" +
+                "<tr><td class=\"eventL\"><b>2x2:</b></td><td class=\"l\">" + convertTime((1.37 / (p / time))) + "</td><td class=\"r\">" + convertTime((3 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>3x3:</b></td><td class=\"l\">" + convertTime((5.80 / (p / time))) + "</td><td class=\"r\">" + convertTime((8.3 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>4x4:</b></td><td class=\"l\">" + convertTime((21.13 / (p / time))) + "</td><td class=\"r\">" + convertTime((30 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>5x5:</b></td><td colspan=\"2\" class=\"c\">" + convertTime((42.56 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>6x6:</b></td><td class=\"l\">" + convertTime((77.37 / (p / time))) + "</td><td class=\"r\">" + convertTime((110 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>7x7:</b></td><td class=\"l\">" + convertTime((117.10 / (p / time))) + "</td><td class=\"r\">" + convertTime((170 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>OH:</b></td><td class=\"l\">" + convertTime((9.47 / (p / time))) + "</td><td class=\"r\">" + convertTime((13 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>Megaminx:</b></td><td class=\"l\">" + convertTime((32.03 / (p / time))) + "</td><td class=\"r\">" + convertTime((50 / (p / time))) + "</td></tr></table><hr>";
+              } else if (events == 666) {
+                p = 77.37
+                document.getElementById("results").innerHTML =
+                "Your score is:<p>" + Number(10000 * ((p) / time)).toFixed(0) + "</p>" +
+                "<table class=\"row\">" +
+                "<tr><td class=\"eventL\"><b>2x2:</b></td><td class=\"l\">" + convertTime((1.37 / (p / time))) + "</td><td class=\"r\">" + convertTime((3 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>3x3:</b></td><td class=\"l\">" + convertTime((5.80 / (p / time))) + "</td><td class=\"r\">" + convertTime((8.3 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>4x4:</b></td><td class=\"l\">" + convertTime((21.13 / (p / time))) + "</td><td class=\"r\">" + convertTime((30 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>5x5:</b></td><td class=\"l\">" + convertTime((42.56 / (p / time))) + "</td><td class=\"r\">" + convertTime((60 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>6x6:</b></td><td colspan=\"2\" class=\"c\">" + convertTime((77.37 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>7x7:</b></td><td class=\"l\">" + convertTime((117.10 / (p / time))) + "</td><td class=\"r\">" + convertTime((170 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>OH:</b></td><td class=\"l\">" + convertTime((9.47 / (p / time))) + "</td><td class=\"r\">" + convertTime((13 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>Megaminx:</b></td><td class=\"l\">" + convertTime((32.03 / (p / time))) + "</td><td class=\"r\">" + convertTime((50 / (p / time))) + "</td></tr></table><hr>";
+              } else if (events == 777) {
+                p = 117.10
+                document.getElementById("results").innerHTML =
+                "Your score is:<p>" + Number(10000 * ((p) / time)).toFixed(0) + "</p>" +
+                "<table class=\"row\">" +
+                "<tr><td class=\"eventL\"><b>2x2:</b></td><td class=\"l\">" + convertTime((1.37 / (p / time))) + "</td><td class=\"r\">" + convertTime((3 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>3x3:</b></td><td class=\"l\">" + convertTime((5.80 / (p / time))) + "</td><td class=\"r\">" + convertTime((8.3 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>4x4:</b></td><td class=\"l\">" + convertTime((21.13 / (p / time))) + "</td><td class=\"r\">" + convertTime((30 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>5x5:</b></td><td class=\"l\">" + convertTime((42.56 / (p / time))) + "</td><td class=\"r\">" + convertTime((60 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>6x6:</b></td><td class=\"l\">" + convertTime((77.37 / (p / time))) + "</td><td class=\"r\">" + convertTime((110 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>7x7:</b></td><td colspan=\"2\" class=\"c\">" + convertTime((117.10 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>OH:</b></td><td class=\"l\">" + convertTime((9.47 / (p / time))) + "</td><td class=\"r\">" + convertTime((13 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>Megaminx:</b></td><td class=\"l\">" + convertTime((32.03 / (p / time))) + "</td><td class=\"r\">" + convertTime((50 / (p / time))) + "</td></tr></table><hr>";
+              } else if (events == "3oh") {
+                p = 9.47
+                document.getElementById("results").innerHTML =
+                "Your score is:<p>" + Number(10000 * ((p) / time)).toFixed(0) + "</p>" +
+                "<table class=\"row\">" +
+                "<tr><td class=\"eventL\"><b>2x2:</b></td><td class=\"l\">" + convertTime((1.37 / (p / time))) + "</td><td class=\"r\">" + convertTime((3 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>3x3:</b></td><td class=\"l\">" + convertTime((5.80 / (p / time))) + "</td><td class=\"r\">" + convertTime((8.3 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>4x4:</b></td><td class=\"l\">" + convertTime((21.13 / (p / time))) + "</td><td class=\"r\">" + convertTime((30 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>5x5:</b></td><td class=\"l\">" + convertTime((42.56 / (p / time))) + "</td><td class=\"r\">" + convertTime((60 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>6x6:</b></td><td class=\"l\">" + convertTime((77.37 / (p / time))) + "</td><td class=\"r\">" + convertTime((110 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>7x7:</b></td><td class=\"l\">" + convertTime((117.10 / (p / time))) + "</td><td class=\"r\">" + convertTime((170 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>OH:</b></td><td colspan=\"2\" class=\"c\">" + convertTime((9.47 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>Megaminx:</b></td><td class=\"l\">" + convertTime((32.03 / (p / time))) + "</td><td class=\"r\">" + convertTime((50 / (p / time))) + "</td></tr></table><hr>";
+              } else if (events == "mega") {
+                p = 32.03
+                document.getElementById("results").innerHTML =
+                "Your score is:<p>" + Number(10000 * ((p) / time)).toFixed(0) + "</p>" +
+                "<table class=\"row\">" +
+                "<tr><td class=\"eventL\"><b>2x2:</b></td><td class=\"l\">" + convertTime((1.37 / (p / time))) + "</td><td class=\"r\">" + convertTime((3 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>3x3:</b></td><td class=\"l\">" + convertTime((5.80 / (p / time))) + "</td><td class=\"r\">" + convertTime((8.3 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>4x4:</b></td><td class=\"l\">" + convertTime((21.13 / (p / time))) + "</td><td class=\"r\">" + convertTime((30 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>5x5:</b></td><td class=\"l\">" + convertTime((42.56 / (p / time))) + "</td><td class=\"r\">" + convertTime((60 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>6x6:</b></td><td class=\"l\">" + convertTime((77.37 / (p / time))) + "</td><td class=\"r\">" + convertTime((110 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>7x7:</b></td><td class=\"l\">" + convertTime((117.10 / (p / time))) + "</td><td class=\"r\">" + convertTime((170 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>OH:</b></td><td class=\"l\">" + convertTime((9.47 / (p / time))) + "</td><td class=\"r\">" + convertTime((13 / (p / time))) + "</td></tr>" +
+                "<tr><td class=\"eventL\"><b>Megaminx:</b></td><td colspan=\"2\" class=\"c\">" + convertTime((32.03 / (p / time))) + "</td></tr></table><hr>";
+              }
+
           }
         }
       </script>
