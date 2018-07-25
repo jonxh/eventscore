@@ -74,9 +74,9 @@
       <script>
         function limit() {
 
-          function convertTime(num) {
-            var m = Math.floor(num/60);
-            var s = Number(num%60).toFixed(2);
+          function convertTime(n) {
+            var m = Math.floor(n/60);
+            var s = Number(n%60).toFixed(2);
             if (m != 0 && s > 10) { return(m + ":" + s); };
             if (m != 0 && s < 10 ) { return(m + ":0" + s); }
             if (m == 0 && s != 0) { return(s); };
@@ -85,36 +85,39 @@
           var events = document.getElementById("events").value;
           var time = document.getElementById("time").value.split(':').reduce((acc,time) => (60 * acc) + +time);
 
-          var wr2 = (1.35 + 1.37 + 1.39) / 3;
-          var wr3 = (5.80 + 5.95 + 6.31) / 3;
-          var wr4 = (21.13 + 22.27 + 23.28) / 3;
-          var wr5 = (42.56 + 43.21 + 46.84) / 3;
-          var wr6 = (77.37 + 87.73 + 87.79) / 3;
-          var wr7 = (117.10 + 125.7 + 126.76) / 3;
-          var wrOH = (9.47 + 9.54 + 10.06) / 3;
-          var wrMega = (32.03 + 34.65 + 35.02) / 3;
+          var p = "";
 
-          var wr = "";
-
-          if (events == 222) { wr = wr2; } if (events == 333) { wr = wr3; }
-          if (events == 444) { wr = wr4; } if (events == 555) { wr = wr5; }
-          if (events == 666) { wr = wr6; } if (events == 777) { wr = wr7; }
-          if (events == "3oh") { wr = wrOH; } if (events == "mega") { wr = wrMega; }
+          if (events == 222) { p = 1.37; }
+          if (events == 333) { p = 5.80; }
+          if (events == 444) { p = 21.13; }
+          if (events == 555) { p = 42.56; }
+          if (events == 666) { p = 77.37; }
+          if (events == 777) { p = 117.1; }
+          if (events == "333oh") { p = 9.47; }
+          if (events == "mega") { p = 32.03; }
 
           if (time == "" || time <= 0) {
-            document.getElementById("results").innerHTML = "Why u do dis";
+            document.getElementById("results").innerHTML = "Invalid.";
           } else {
               document.getElementById("results").innerHTML =
-              "Your score is:<p>" + Number(100 * ((wr) / time)).toFixed(2) + "</p>" +
+              "Your score is:<p>" + Number(100 * ((p) / time)).toFixed(2) + "</p>" +
               "Equivalent score:<br><br>" +
-              "<b>2x2:</b> " + convertTime((wr2 / (wr / time))) + "<br>" +
-              "<b>3x3:</b> " + convertTime((wr3 / (wr / time))) + "<br>" +
-              "<b>4x4:</b> " + convertTime((wr4 / (wr / time))) + "<br>" +
-              "<b>5x5:</b> " + convertTime((wr5 / (wr / time))) + "<br>" +
-              "<b>6x6:</b> " + convertTime((wr6 / (wr / time))) + "<br>" +
-              "<b>7x7:</b> " + convertTime((wr7 / (wr / time))) + "<br>" +
-              "<b>OH:</b> " + convertTime((wrOH / (wr / time))) + "<br>" +
-              "<b>Megaminx:</b> " + convertTime((wrMega / (wr / time))) + "<br><hr>";
+              "<b>2x2:</b> " + convertTime((1.37 / (p / time))) + " - " +
+              convertTime((3 / (p / time))) +
+              "<br><b>3x3:</b> " + convertTime((5.80 / (p / time))) + " - " +
+              convertTime((8.3 / (p / time))) +
+              "<br><b>4x4:</b> " + convertTime((21.13 / (p / time))) + " - " +
+              convertTime((30 / (p / time))) +
+              "<br><b>5x5:</b> " + convertTime((42.56 / (p / time))) + " - " +
+              convertTime((60 / (p / time))) +
+              "<br><b>6x6:</b> " + convertTime((77.37 / (p / time))) + " - " +
+              convertTime((110 / (p / time))) +
+              "<br><b>7x7:</b> " + convertTime((117.10 / (p / time))) + " - " +
+              convertTime((170 / (p / time))) +
+              "<br><b>OH:</b> " + convertTime((9.47 / (p / time))) + " - " +
+              convertTime((13 / (p / time))) +
+              "<br><b>Megaminx:</b> " + convertTime((32.03 / (p / time))) + " - " +
+              convertTime((50 / (p / time))) + "<br><hr>";
           }
         }
       </script>
